@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        
+        <style>
+           #div1{width: 100px;height: 100px;background: red;position: absolute;left: 0px;top: 40px;}
+           #div2{width: 1px;height: 300px;background: black;position: absolute;left: 400px;top: 0;}
+        </style>
+        <script>
+            window.onload=function()
+            {
+                var oBtn=document.getElementById('btn1');
+                
+                
+                var timer='';
+                
+                btn1.onclick=function()
+                {
+                    sMove(400);
+                }
+                
+            }
+            function sMove(iTar)
+            {
+                var oDiv=document.getElementById('div1');
+                var timer='';
+                    clearInterval(timer);
+                    timer=setInterval(function(){
+                        var iSpeed=(iTar-oDiv.offsetLeft)/9;
+                        
+                        var iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                        console.log(iSpeed);
+                        if(oDiv.offsetLeft==iTar){
+                            clearInterval(timer);
+                        }else{
+                           oDiv.style.left=oDiv.offsetLeft+iSpeed+'px';
+                        }
+                        
+                    },50)
+            }
+        </script>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <input id="btn1" type="button" name="" value="开始移动" />
+        <div id="div2"></div>
+    </body>
+</html>
